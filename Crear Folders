@@ -1,0 +1,17 @@
+import os
+def crear_folder(n1, n2,arc):
+    for f in range(1,10):
+        dir_n1= n1+'_' + str(f)
+        directorio = os.getcwd()
+        os.system('mkdir ' + dir_n1)
+        os.chdir(dir_n1)
+        for s in range (1,10):
+            dir_n2= n2 + '_' + str(s)
+            directorio2 = os.getcwd()
+            os.system('mkdir '+ dir_n2)
+            os.chdir(dir_n2)
+            for a in range(1,10):
+                file = open(arc + '_'+str(a)+'.txt','w')
+                file.close()
+            os.chdir(directorio2)    
+        os.chdir(directorio) 
