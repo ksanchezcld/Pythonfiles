@@ -1,0 +1,17 @@
+n1 = int(raw_input("Introduzca N1:"))
+n2 = int(raw_input("Introduzca N2:"))
+n3 = int(raw_input("Introduzca N3:"))
+
+if n1 < n2:
+  if n1 < n3:
+    print "el menor es n1 con", n1
+if n2 < n1:
+  if n2 < n3:
+    print "el menor es n2 con", n2
+if n3 < n1:
+  if n3 < n2:
+     print "n3 es el menor con", n3
+if n1 == n2 and n2 == n3:
+   print "Todos son iguales, no se puede sacar el menor de 3"
+    
+      
