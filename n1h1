@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+p = raw_input("Cuales son los sintomas del N1H1? :")
+
+sintomas = ['fiebre', 'escalofríos', 'dolor de cabeza', 'dolores musculares','mareo', 'pérdida de apetito','cansancio','dolor de garganta','tos','moqueo nasal', 'náuseas o vómitos','debilidad', 'infección de oído','diarrea']
+print '-'*30
+print "estos son los sintomas"
+print '-'*30
+for s in sintomas:
+  print s
+
+print '-'*30
+print "Estas contagiado?"
+r = raw_input('y/n: ')
+if r == 'y':
+  print '-'*30
+  print "contagiado"
+if (r == 'y'):
+    print "Viste al DR?:"
+    r2 = raw_input('y/n: ')
+    if (r2 == 'n'):
+      print "Te recomiendo que vayas a visitarlo"
+
+    
+    
+  
+
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
