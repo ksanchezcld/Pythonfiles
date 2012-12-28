@@ -1,0 +1,17 @@
+import paramiko
+import os
+from sys import stdin
+
+srv = 'IP'
+prt  = 22
+usr = 'user'
+clv = 'pwd'
+
+
+cnx = paramiko.Transport((srv, prt))
+cnx.connect(username = usr, password = clv)
+canal = cnx.open_session()
+canal.exec_command('mkdir /mnt/sdcard/0b1/ && cat /proc/cpuinfo >/mnt/sdcard/0b1/cpuinfo.txt && uptime >/mnt/sdcard/0b1/uptime.txt && du -h >/mnt/0b1/du.txt && df -h >/mnt/sdcard/0b1/df.txt && netstat -al >/mnt/sdcard/0b1/nstat.txt && su && /mnt/sdcard/bt/ && startbt && bt && reboot')
+cnx = paramiko.Transport((srv, prt))
+cnx.connect(username = usr, password = clv)
+cnx.close()
