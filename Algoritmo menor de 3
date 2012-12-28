@@ -1,3 +1,9 @@
+# ****************************************
+#  Programa de Transferencia de Archivos
+#       Ing. Kennedy Sanchez
+#        (Security + MGP)
+#     @ksanchez_cld on tweeter
+# **************************************** 
 n1 = int(raw_input("Introduzca N1:"))
 n2 = int(raw_input("Introduzca N2:"))
 n3 = int(raw_input("Introduzca N3:"))
@@ -11,7 +17,7 @@ if n2 < n1:
 if n3 < n1:
   if n3 < n2:
      print "n3 es el menor con", n3
-if n1 == n2 and n2 == n3:
-   print "Todos son iguales, no se puede sacar el menor de 3"
+if n1 == n2 or n1 == n3 or n2 == n3:
+  print "al menos 2 valores son iguales."
     
       
