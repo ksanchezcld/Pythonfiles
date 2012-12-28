@@ -1,3 +1,9 @@
+# ****************************************
+#  Programa de Transferencia de Archivos
+#       Ing. Kennedy Sanchez
+#        (Security + MGP)
+#     @ksanchez_cld on tweeter
+# **************************************** 
 numes = int(raw_input("Introduzca mes:"))
 numdia = int(raw_input("Introduzca dia:"))
 
