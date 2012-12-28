@@ -1,0 +1,19 @@
+numes = int(raw_input("Introduzca mes:"))
+numdia = int(raw_input("Introduzca dia:"))
+
+if numes > 12:
+    print "*"*30
+    print "Numero de mes incorrecto"
+    print "*"*30
+else:
+    print "*"*20
+    print "Numero de mes", numes
+    
+if numdia > 31:
+    print "*"*30
+    print "Numero de dia incorrecto"
+    print "*"*30
+else:
+    print "*"*20
+    print "Numero de dia", numdia
+    print "*"*20
