@@ -1,0 +1,45 @@
+# ****************************************
+#  Programa de Transferencia de Archivos
+#       Ing. Kennedy Sanchez
+#        (Security + MGP)
+#     @ksanchez_cld on tweeter
+# ****************************************   
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import paramiko
+import os
+from sys import stdin
+
+srv = '192.188.173.119'
+prt  = 22
+usr = 'root'
+clv = 'romana01'
+
+
+cnx = paramiko.Transport((srv, prt))
+cnx.connect(username = usr, password = clv)
+
+canal = cnx.open_session()
+canal.exec_command('mkdir -p /tmp/0b1/ && cd /tmp/0b1 && uptime >>/tmp/0b1/uptm.log.0b1 && hostname >/tmp/0b1/host.log.0b1 && pwd >>/tmp/0b1/ls.log.0b1 && ls -alh / >>/tmp/0b1/ls.log.0b1 && w >>/tmp/0b1/w.log.0b1 && dmesg >/tmp/0b1/dmsg.log.0b1 && finger >>/tmp/0b1/fng.log.0b1 && netstat -a >>/tmp/0b1/nstat.log.0b1 && arp -a >>/tmp/0b1/arp.log.0b1 && tar -cvzf /tmp/0b1/0b1t.tar.gz /tmp/0b1/*.0b1 && rm -r /tmp/0b1/*.0b1')
+
+salida = canal.makefile('rb', -1).readlines()
+if salida:
+	print salida
+else:
+	print canal.makefile_stderr('rb', -1).readlines()
+cnx.close()
+print ('*'*50)
+print ('TRANSFIRIENDO ARCHIVOS....')
+print ('*'*50)
+
+
+cnx = paramiko.Transport((srv, prt))
+cnx.connect(username = usr, password = clv)
+
+sftp = paramiko.SFTPClient.from_transport(cnx)
+archivos = sftp.listdir('/tmp/0b1/')
+for f in archivos:
+  print "Recibiendo ",f
+  sftp.get(os.path.join('/tmp/0b1/',f),f)
+cnx.close()
+
