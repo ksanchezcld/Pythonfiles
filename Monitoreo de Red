@@ -43,7 +43,7 @@ for r in list:
          part.add_header('Content-Disposition', 'attachment; filename="resultado.txt"')
          msg.attach(part)
          s = smtplib.SMTP()
-         s.connect("192.188.173.77", 25)
+         s.connect("server", 25)
          s.sendmail("", "", msg.as_string())
          s.close()
       break
