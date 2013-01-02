@@ -31,7 +31,7 @@ for r in list:
          msg = MIMEMultipart()
        # msg['From'] = "user@mailserver.com"
         # msg['To'] = "user@mailserver.com"
-         msg['Subject'] = "Reporte Monitoreo Red CR"
+         msg['Subject'] = "Reporte Monitoreo Red "
          msg.attach( MIMEText("Adjunto grupo de IPs Offline"))
          files=["resultado.txt"]
         # for f in files:
