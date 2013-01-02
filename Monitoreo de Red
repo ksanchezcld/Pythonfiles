@@ -1,0 +1,52 @@
+# ****************************************
+#  Programa de Monitoreo de Red          # 
+#       Ing. Kennedy Sanchez             # 
+#        (Security + MGP)                #
+#     @ksanchez_cld on tweeter           #
+# ****************************************   
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import  time, subprocess, smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.MIMEText import MIMEText
+from email import Encoders
+
+horaRaw = time.time()
+horaFormato = time.ctime(horaRaw)
+
+iplist = open('ip.txt')
+list = iplist.readlines()
+for r in list:
+   while r != False:
+      cmd = subprocess.call(["ping", "-c 1", r])
+      if cmd == 1:
+         fl = open('resultado.txt', 'w')
+         fl = open('resultado.txt','a')
+         fl.write(r)
+         fl.close                  
+         print '*'*80
+         print "                       El IP:", r,  "\n   !!!Esta mostrando problemas de conexion!!!  ", horaFormato
+         print '*'*80
+         msg = MIMEMultipart()
+       # msg['From'] = "user@mailserver.com"
+        # msg['To'] = "user@mailserver.com"
+         msg['Subject'] = "Reporte Monitoreo Red CR"
+         msg.attach( MIMEText("Adjunto grupo de IPs Offline"))
+         files=["resultado.txt"]
+        # for f in files:
+         print "==="
+         print files
+         part = MIMEBase('application', "octet-stream")
+         part.set_payload( open(files,"rb").read() )
+         Encoders.encode_base64(part)
+         part.add_header('Content-Disposition', 'attachment; filename="resultado.txt"')
+         msg.attach(part)
+         s = smtplib.SMTP()
+         s.connect("192.188.173.77", 25)
+         s.sendmail("", "", msg.as_string())
+         s.close()
+      break
+
+
+
