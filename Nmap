@@ -1,0 +1,8 @@
+import os
+f = open("tcp.txt", "w")
+f.write(os.system("nmap --open localhost |grep open |awk '{print $1}'"))
+f.close
+xfile = open("tcp.txt","r")
+xfile = file.readlines()
+for m in xfile:
+    print m.replace("/tcp","")
