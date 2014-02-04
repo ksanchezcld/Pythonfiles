@@ -2,7 +2,7 @@
 #  Programa Imprimir numero mes/dia
 #       Ing. Kennedy Sanchez
 #        (Security + MGP)
-#     @ksanchez_cld on tweeter
+#     @ksanchez_cld on twitter
 # **************************************** 
 numes = int(raw_input("Introduzca mes:"))
 numdia = int(raw_input("Introduzca dia:"))
